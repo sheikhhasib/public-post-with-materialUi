@@ -9,6 +9,7 @@ import {
 import Header from './components/Header/Header';
 import Posts from './components/Posts/Posts';
 import PostDetails from './components/PostDetails/PostDetails';
+import NotFound from './components/notFound/NotFound';
 export const PostContext = createContext();
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           <Route exact path="/post/:postId">
             <Header></Header>
             <PostDetails></PostDetails>
+          </Route>
+          <Route exact path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
       </Router>
