@@ -9,6 +9,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Comments from '../Comments/Comments';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 const useStyles = makeStyles({
     root: {
@@ -53,24 +56,22 @@ const PostDetails = () => {
             </div>
             <div style={{ marginTop: '20px'}}>
                 <Card className={classes.root}>
-                    <CardActionArea style={{backgroundColor: '#87CEFA'}}>
+                    <CardActionArea style={{backgroundColor: '#87CEFA',padding:'20px 0px 100px 20px'}}>
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {title}
+                                <h2> {title}</h2>
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 {body}
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions style={{backgroundColor: '#87CEFA'}}>
-                        <small>Post Id : {id}</small>
+                    <CardActions style={{backgroundColor: '#87CEFA',padding:'0px 0px 10px 40px',color:'#696969'}}>
+                        <FontAwesomeIcon icon={faCommentAlt} />-{comments.length}
                     </CardActions>
                 </Card>
             </div>
-            <div style={{ width:'92%',backgroundColor:'#ff8699',padding:'5px 20px',marginTop:'20px',borderRadius:'5px'}}>
-                <h4>Comments : </h4>
-            </div>
+
             <div style={{width:'80%'}}>
                 
                 {
