@@ -68,8 +68,8 @@ const PostDetails = () => {
                     </CardActions>
                 </Card>
             </div>
-            <div style={{ width:'92%',backgroundColor:'#ff8699',padding:'10px 20px',marginTop:'20px',borderRadius:'5px'}}>
-                <h3>Comments : </h3>
+            <div style={{ width:'92%',backgroundColor:'#ff8699',padding:'5px 20px',marginTop:'20px',borderRadius:'5px'}}>
+                <h4>Comments : </h4>
             </div>
             <div style={{width:'80%'}}>
                 
