@@ -26,7 +26,6 @@ const PostDetails = () => {
     const { postId } = useParams();
     const [post, setPost] = useState({});
     const [comments,setComments] = useState([]);
-    const [images,setImage] = useState([]);
     useEffect(() => {
         const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
         fetch(url)
@@ -39,12 +38,7 @@ const PostDetails = () => {
             .then(res => res.json())
             .then(comments => setComments(comments))
     },[])
-    useEffect(()=>{
-        const url = `https://randomuser.me/api/?results=5`;
-        fetch(url)
-            .then(res => res.json())
-            .then(img => setImage(img.results))
-    },[])
+
     const { id, title, body } = post;
     const classes = useStyles();
 
@@ -54,9 +48,12 @@ const PostDetails = () => {
     }
     return (
         <div style={{ width: '60%', margin: 'auto' }}>
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ width:'92%',backgroundColor:'#00CED1',padding:'10px 20px',marginTop:'20px',borderRadius:'5px'}}>
+                <h3>Post Details : </h3>
+            </div>
+            <div style={{ marginTop: '20px'}}>
                 <Card className={classes.root}>
-                    <CardActionArea>
+                    <CardActionArea style={{backgroundColor: '#87CEFA'}}>
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
                                 {title}
@@ -66,12 +63,16 @@ const PostDetails = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
+                    <CardActions style={{backgroundColor: '#87CEFA'}}>
                         <small>Post Id : {id}</small>
                     </CardActions>
                 </Card>
             </div>
+            <div style={{ width:'92%',backgroundColor:'#ff8699',padding:'10px 20px',marginTop:'20px',borderRadius:'5px'}}>
+                <h3>Comments : </h3>
+            </div>
             <div style={{width:'80%'}}>
+                
                 {
                     comments.map(comment => <Comments comment={comment}></Comments>)
                 }

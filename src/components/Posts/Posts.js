@@ -22,42 +22,44 @@ const useStyles = makeStyles({
 
 const Posts = () => {
     const classes = useStyles();
-    const [posts,setPosts] = useContext(PostContext)
-    useEffect(()=>{
+    const [posts, setPosts] = useContext(PostContext)
+    useEffect(() => {
         const url = 'https://jsonplaceholder.typicode.com/posts';
         fetch(url)
-        .then(res => res.json())
-        .then(data => setPosts(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setPosts(data))
+    }, [])
     const Post = posts.map(post => {
-        const {id,title,body} = post;
+        const { id, title, body } = post;
         return (
-            <div style={{marginTop:'20px'}}>
+            <div style={{ marginTop: '20px' }}>
                 <Card className={classes.root}>
-                    <CardActionArea>
+                    <CardActionArea style={{backgroundColor:'#87CEFA'}}>
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
                                 {title}
-                        </Typography>
+                            </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
-                               {body}
+                                {body}
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Link to={`/post/${id}`}>
-                            <Button size="small" color="primary">
-                                Read More
+                    <CardActions style={{backgroundColor:'#87CEFA'}}>
+                        <Link style={{textDecoration:'none'}} to={`/post/${id}`}>
+                            <Button  style={{backgroundColor: 'midnightblue',color:'#fff'}}>
+                                Post Details
                             </Button>
                         </Link>
-                        
                     </CardActions>
                 </Card>
             </div>
         )
     })
     return (
-        <div style={{width:'50%',margin:'auto'}}>
+        <div style={{ width: '50%', margin: 'auto' }}>
+            <div style={{ width: '100%', backgroundColor: '#00CED1', padding: '10px 20px', marginTop: '20px', borderRadius: '5px' }}>
+                <h3>All  Posts : </h3>
+            </div>
             {Post}
         </div>
     );

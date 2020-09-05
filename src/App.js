@@ -14,7 +14,8 @@ export const PostContext = createContext();
 function App() {
   const [posts,setPosts] = useState([]);
   return (
-    <PostContext.Provider value={[posts,setPosts]}>
+    <div style={{backgroundColor:'#A9A9A9'}}>
+      <PostContext.Provider value={[posts,setPosts]}>
        <Router>
         <Switch>
           <Route exact path="/">
@@ -28,6 +29,7 @@ function App() {
         </Switch>
       </Router>
     </PostContext.Provider>
+    </div>
   );
 }
 

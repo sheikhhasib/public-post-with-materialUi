@@ -51,7 +51,7 @@ const Comments = (props) => {
 
     return (
         <div style={{marginTop: '10px',marginLeft: '120px'}}>
-            <Card className={classes.root}>
+            <Card className={classes.root} style={{backgroundColor:'#B0E0E6'}}>
                 <CardHeader
                     avatar={
                         <Avatar aria-label="recipe" className={classes.avatar}>
